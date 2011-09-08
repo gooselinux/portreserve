@@ -1,0 +1,12 @@
+diff -up portreserve-0.0.4/src/portreserve.c.infinite-loop portreserve-0.0.4/src/portreserve.c
+--- portreserve-0.0.4/src/portreserve.c.infinite-loop	2008-07-01 17:12:28.000000000 +0100
++++ portreserve-0.0.4/src/portreserve.c	2010-01-22 15:12:19.038057087 +0000
+@@ -261,7 +261,7 @@ portreserve (void)
+ 		if ((newmaps = reserve (cfgfile, d->d_name)) == NULL)
+ 			continue;
+ 
+-		for (p = newmaps; p && p->next != NULL; p = newmaps->next)
++		for (p = newmaps; p && p->next != NULL; p = p->next)
+ 			;
+ 		if (p)
+ 			p->next = maps;
